@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">U2T1_AndroidVerano</string>
+    <string name="dominio">https://angelabalaguer123.000webhostapp.com/verano</string>
+    <string name="login">/login.php?Usuario=</string>
+    <string name="insertarcliente">/insertarcliente.php?</string>
+    <string name="vercliente">/clientes.php</string>
 </resources>
