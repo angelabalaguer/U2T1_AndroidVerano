@@ -4,4 +4,5 @@
     <string name="login">/login.php?Usuario=</string>
     <string name="insertarcliente">/insertarcliente.php?</string>
     <string name="vercliente">/clientes.php</string>
+    <string name="insertarclientepost">/Insertarclientespost.php</string>
 </resources>
