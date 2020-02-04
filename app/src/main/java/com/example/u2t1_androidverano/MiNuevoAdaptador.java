@@ -12,9 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MiNuevoAdaptador extends
-        RecyclerView.Adapter<MiNuevoAdaptador.ViewHolder> {
+        RecyclerView.Adapter<MiNuevoAdaptador.ViewHolder>
+        implements View.OnClickListener{
     private LayoutInflater inflador;
     private ArrayList<Cliente> lista;
+    private View.OnClickListener listener;
+
     public MiNuevoAdaptador(Context context, ArrayList<Cliente> lista) {
         this.lista = lista;
         inflador = (LayoutInflater) context
@@ -23,21 +26,39 @@ public class MiNuevoAdaptador extends
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = inflador.inflate(R.layout.minuevoitem, parent, false);
+       v.setOnClickListener(this);
         return new ViewHolder(v);
+
     }
     @Override
     public void onBindViewHolder(ViewHolder holder, int i) {
-        holder.titulo.setText(lista.get(i).getNombre()+" "+lista.get(i).getApellido());
+
+        holder.codpersona.setText(lista.get(i).getcodigo());
+        holder.titulo.setText(lista.get(i).getNombre()+" "+lista.get(i).getApellido()+" "+lista.get(i).getcodigo());
     }
     @Override
     public int getItemCount() {
         return lista.size();
     }
+
+    public void  setOnClickListener(View.OnClickListener listener) {
+        this.listener=listener;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (listener != null){
+            listener.onClick(view);
+        }
+
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView titulo, subtitutlo;
+        public TextView titulo, subtitutlo,codpersona;
         public ImageView icon;
         ViewHolder(View itemView) {
             super(itemView);
+            codpersona = (TextView) itemView.findViewById(R.id.codpersona);
             titulo = (TextView)itemView.findViewById(R.id.titulo);
             subtitutlo = (TextView)itemView.findViewById(R.id.subtitulo);
             icon = (ImageView)itemView.findViewById(R.id.icono);

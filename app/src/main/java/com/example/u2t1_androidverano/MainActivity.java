@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Cliente> misdatos;
     public Vector<String> valor;
     private String res;
+    private int cod;
     HttpURLConnection conexion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +38,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recycler_view);
         misdatos = new ArrayList<>();
-        misdatos.add(new Cliente("1", "Juanito", "Perez"));
-        misdatos.add(new Cliente("2", "Pablito", "Canto"));
         adaptador = new MiNuevoAdaptador(this, misdatos);
-/* adaptador = new MiNuevoAdaptador(this,
-ListaClientes());*/
         recyclerView.setAdapter(adaptador);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
     }
     private ArrayList<Cliente> ListaClientes(String string) {
-        ArrayList<Cliente> Clientes = new ArrayList<>();
+        final ArrayList<Cliente> Clientes = new ArrayList<>();
         try {
             JSONArray json_array = new JSONArray(string);
             for (int i = 0; i < json_array.length(); i++) {
@@ -55,6 +54,14 @@ ListaClientes());*/
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        adaptador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),"SU ID ES:"+ Clientes.get(recyclerView.getChildAdapterPosition(view)).getcodigo(),Toast.LENGTH_SHORT).show();
+               // Intent intent = new Intent (view.getContext(), ConsultaDeClientes.class);
+              //  startActivityForResult(intent, 0);
+            }
+        });
         return Clientes;
     }
     public String conseguirstring() {

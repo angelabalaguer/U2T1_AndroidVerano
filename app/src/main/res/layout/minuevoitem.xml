@@ -20,6 +20,11 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             />
+        <TextView android:id="@+id/codpersona"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            />
         <TextView android:id="@+id/subtitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,8 +34,8 @@
             android:id="@+id/mibotonitem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="miboton"
-            android:visibility="gone"
+            android:text="VER DATOS"
+            android:onClick="ver"
             />
     </LinearLayout>
 </LinearLayout>
