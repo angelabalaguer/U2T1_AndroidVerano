@@ -49,19 +49,13 @@ public class MainActivity extends AppCompatActivity {
             JSONArray json_array = new JSONArray(string);
             for (int i = 0; i < json_array.length(); i++) {
                 JSONObject objeto = json_array.getJSONObject(i);
-                Clientes.add(new Cliente(objeto.getString("Cod_persona"), objeto.getString("Nombre"),objeto.getString("Apellidos")));
+                Clientes.add(new Cliente(objeto.getString("Cod_persona"), objeto.getString("Nombre"),objeto.getString("Apellidos"),
+                        objeto.getString("Sexo"),objeto.getString("celular"),objeto.getString("Domicilio")));
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        adaptador.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"SU ID ES:"+ Clientes.get(recyclerView.getChildAdapterPosition(view)).getcodigo(),Toast.LENGTH_SHORT).show();
-               // Intent intent = new Intent (view.getContext(), ConsultaDeClientes.class);
-              //  startActivityForResult(intent, 0);
-            }
-        });
+
         return Clientes;
     }
     public String conseguirstring() {

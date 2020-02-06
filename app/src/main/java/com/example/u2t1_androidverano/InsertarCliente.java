@@ -33,12 +33,13 @@ public class InsertarCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insertar_cliente);
+
         nombre = (EditText) findViewById(R.id.nombre);
         direccion = (EditText) findViewById(R.id.direccion);
         telefono = (EditText) findViewById(R.id.telefono);
         apellido = (EditText) findViewById(R.id.apellido);
         sexo = (Spinner) findViewById(R.id.sexo);
-        isexo=(sexo.getSelectedItem().toString().equals("Masculino"))?0:1;
+        isexo=(sexo.getSelectedItem().toString().equals("Masculino"))?0:1;//0
     }
     public void Insertar(View view){
         try {

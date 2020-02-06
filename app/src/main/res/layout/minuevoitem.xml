@@ -15,27 +15,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView android:id="@+id/titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             />
-        <TextView android:id="@+id/codpersona"
+        <TextView android:id="@+id/apellido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            />
-        <TextView android:id="@+id/subtitulo"
+            android:gravity="center"
+            android:visibility="gone"/>
+
+        <TextView android:id="@+id/codigo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Otro Texto"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:visibility="gone"/>
+
+        <TextView android:id="@+id/sexo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"/>
+
+        <TextView android:id="@+id/direccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"/>
+
+        <TextView android:id="@+id/telefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"/>
         <Button
             android:id="@+id/mibotonitem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="VER DATOS"
-            android:onClick="ver"
+            android:text="miboton"
+            android:visibility="gone"
             />
     </LinearLayout>
 </LinearLayout>
