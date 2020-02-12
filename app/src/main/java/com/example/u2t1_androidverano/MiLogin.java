@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -65,7 +66,9 @@ public class MiLogin  extends AppCompatActivity {
     }
 
     public void onLogin(View view) {
-        int V = ValidaDatos(Login.getText().toString(), password.getText().toString());
+        Task1 task1 = new Task1();
+        task1.execute();
+        /*int V = ValidaDatos(Login.getText().toString(), password.getText().toString());
         if (V == 0) {
             editor = prefs.edit();
             editor.putBoolean("onlogin", true);
@@ -75,5 +78,28 @@ public class MiLogin  extends AppCompatActivity {
             finish();
         } else
             Toast.makeText(this, "Ingreso Fallido", Toast.LENGTH_SHORT).show();
+*/    }
+   public class Task1 extends AsyncTask<Void,Void,Integer >{
+
+       String usuario = Login.getText().toString();
+       String passwor = password.getText().toString();
+       int validar = 0;
+       @Override
+       protected Integer doInBackground(Void... voids) {
+           validar = ValidaDatos(usuario, passwor);
+           return validar;
+       }
+
+       @Override protected void onPostExecute(Integer res) {
+           if (res == 0) {
+               //Para poder editar
+               editor = prefs.edit();
+               editor.putBoolean("onlogin", true);
+               editor.apply();
+               Intent i = new Intent( getApplicationContext(), MainActivity.class);
+               startActivity(i);
+               finish();
+           }
+       }
     }
 }
