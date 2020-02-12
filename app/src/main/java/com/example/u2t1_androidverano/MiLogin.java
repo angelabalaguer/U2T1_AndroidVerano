@@ -79,27 +79,21 @@ public class MiLogin  extends AppCompatActivity {
         } else
             Toast.makeText(this, "Ingreso Fallido", Toast.LENGTH_SHORT).show();
 */    }
-   public class Task1 extends AsyncTask<Void,Void,Integer >{
-
-       String usuario = Login.getText().toString();
-       String passwor = password.getText().toString();
-       int validar = 0;
+   public class Task1 extends AsyncTask<Void,Void,Void >{
+       int V = ValidaDatos(Login.getText().toString(), password.getText().toString());
        @Override
-       protected Integer doInBackground(Void... voids) {
-           validar = ValidaDatos(usuario, passwor);
-           return validar;
-       }
-
-       @Override protected void onPostExecute(Integer res) {
-           if (res == 0) {
-               //Para poder editar
+       protected Void doInBackground(Void... voids) {
+           if (V == 0) {
                editor = prefs.edit();
                editor.putBoolean("onlogin", true);
                editor.apply();
-               Intent i = new Intent( getApplicationContext(), MainActivity.class);
+               Intent i = new Intent(MiLogin.this, MainActivity.class);
                startActivity(i);
                finish();
-           }
+           } else
+               Toast.makeText(MiLogin.this, "Ingreso Fallido", Toast.LENGTH_SHORT).show();
+           return null;
        }
+
     }
 }
