@@ -2,32 +2,32 @@ package com.example.u2t1_androidverano;
 
 public class Cliente {
     private String codigo;
-    private String nombre;
-    private String Apellido;
+    private String Nombre;
+    private String Apellidos;
     private String Sexo;
-    private String Celular;
-    private String Direccion;
+    private String celular;
+    private String Domicilio;
 
-    public Cliente(String codigo, String nombre, String Apellido, String Sexo,String Celular,String Direccion) {
+    public Cliente(String codigo, String Nombre, String Apellidos, String Sexo,String celular,String Domicilio) {
         this.codigo = codigo;
-        this.nombre = nombre;
-        this.Apellido= Apellido;
+        this.Nombre = Nombre;
+        this.Apellidos= Apellidos;
         this.Sexo=Sexo;
-        this.Celular=Celular;
-        this.Direccion=Direccion;
+        this.celular=celular;
+        this.Domicilio=Domicilio;
     }
     public String getcodigo() {
         return codigo;
     }
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
     public String getApellido() {
-        return Apellido;
+        return Apellidos;
     }
     public String getSexo() {return Sexo;}
-    public String getCelular() {return Celular;}
-    public String getDomicilio() {return Direccion;}
+    public String getCelular() {return celular;}
+    public String getDomicilio() {return Domicilio;}
 
 
 
